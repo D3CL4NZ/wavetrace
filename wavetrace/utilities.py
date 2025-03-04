@@ -184,7 +184,7 @@ def get_covering_tile_id(lon, lat):
 
     return lat + lon 
 
-def compute_intersecting_tiles(geometries, tile_ids=cs.SRTM_NZ_TILE_IDS):
+def compute_intersecting_tiles(geometries, tile_ids=cs.SRTM_EC_TILE_IDS):
     """
     Given a list of Shapely geometries in WGS84 coordinates, return an ordered list of the unique SRTM tile IDs in ``tile_ids`` whose corresponding tiles intersect the geometries.
 

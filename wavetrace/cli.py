@@ -63,7 +63,7 @@ def srtm_nz():
     """
     List the IDs of the SRTM tiles that cover New Zealand (SRTM NZ tiles)
     """
-    click.echo(' '.join(cs.SRTM_NZ_TILE_IDS))
+    click.echo(' '.join(cs.SRTM_EC_TILE_IDS))
 
 @wavey.command(short_help="Compute SRTM tiles IDs needed")
 @click.argument('path', type=click.Path())

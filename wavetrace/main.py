@@ -342,7 +342,7 @@ def download_topography(tile_ids, path, high_definition=False):
           ' '.join(cs.SRTM_EC_TILE_IDS)))
 
     # Set download parameters
-    url = 'https://github.com/D3CL4NZ/TriState-SRTM/raw/refs/heads/main/'
+    url = 'https://api.github.com/repos/D3CL4NZ/TriState-SRTM/contents/'
     if high_definition:
         file_names = ['srtm1/{!s}.SRTMGL1.hgt.zip'.format(t) for t in tile_ids]
     else:

@@ -309,7 +309,7 @@ def get_lonlats(transmitters):
     return [(t['longitude'], t['latitude']) for t in transmitters]
 
 def get_covering_tiles_ids(transmitters, transmitter_buffer=0.5, 
-  tile_ids=cs.SRTM_NZ_TILE_IDS):
+  tile_ids=cs.SRTM_EC_TILE_IDS):
     """
     Given a list of transmitters (of the form output by :func:`read_transmitters`), get their locations, buffer them by ``transmitter_buffer`` decimal degrees, and return an ordered list of the unique SRTM tile IDs in ``tile_ids`` whose corresponding tiles intersect the buffers.
     As long as ``tile_ids`` and ``transmitter_buffer`` are big enough, the result will be a list of tile IDs to use when computing coverage for the given transmitters.
@@ -324,7 +324,7 @@ def get_covering_tiles_ids(transmitters, transmitter_buffer=0.5,
 
 def download_topography(tile_ids, path, high_definition=False):
     """
-    Download from the public Gitlab repository https://gitlab.com/araichev/srtm_nz the SRTM1 or SRTM3 topography data corresponding to the given SRTM tile IDs and save the files to the directory ``path``, creating the directory if it does not exist.
+    Download from the public GitHub repository https://github.com/D3CL4NZ/TriState-SRTM the SRTM1 or SRTM3 topography data corresponding to the given SRTM tile IDs and save the files to the directory ``path``, creating the directory if it does not exist.
 
     INPUT:
         - ``tile_ids``: list of strings; SRTM tile IDs
@@ -335,15 +335,14 @@ def download_topography(tile_ids, path, high_definition=False):
         None
 
     NOTES:
-        Only works for SRTM tiles covering New Zealand and raises a ``ValueError`` if the set of tile IDs is not a subset of :data:`SRTM_NZ_TILE_IDS`
+        Only works for SRTM tiles covering the East Coast Tri-State Area and raises a ``ValueError`` if the set of tile IDs is not a subset of :data:`SRTM_EC_TILE_IDS`
     """
-    if not set(tile_ids) <= set(cs.SRTM_NZ_TILE_IDS):
+    if not set(tile_ids) <= set(cs.SRTM_EC_TILE_IDS):
         raise ValueError("Tile IDs must be a subset of {!s}".format(
-          ' '.join(cs.SRTM_NZ_TILE_IDS)))
+          ' '.join(cs.SRTM_EC_TILE_IDS)))
 
     # Set download parameters
-    project_id = '1526685'
-    url = 'https://gitlab.com/api/v4/projects/{!s}/repository/files/'.\
+    url = 'https://github.com/D3CL4NZ/TriState-SRTM/raw/refs/heads/main/'.\
       format(project_id)
     if high_definition:
         file_names = ['srtm1/{!s}.SRTMGL1.hgt.zip'.format(t) for t in tile_ids]

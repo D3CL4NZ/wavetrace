@@ -6,73 +6,17 @@ PROJECT_ROOT = Path(os.path.abspath(os.path.join(
   os.path.dirname(__file__), '../')))
 SECRETS_PATH = PROJECT_ROOT/'secrets.json'
 
-#: SRTM tiles that cover New Zealand; for a visual, see http://geojson.io/#id=gist:anonymous/81b4cb465f1c78941f665c9038494f0f&map=5/-41.360/172.463
-SRTM_NZ_TILE_IDS = [
-  'S35E172',
-  'S35E173',
-  'S36E173',
-  'S36E174',
-  'S36E175',
-  'S37E173',
-  'S37E174',
-  'S37E175',
-  'S37E176',
-  'S38E174',
-  'S38E175',
-  'S38E176',
-  'S38E177',
-  'S38E178',
-  'S39E174',
-  'S39E175',
-  'S39E176',
-  'S39E177',
-  'S39E178',
-  'S40E173',
-  'S40E174',
-  'S40E175',
-  'S40E176',
-  'S40E177',
-  'S40E178',
-  'S41E172',
-  'S41E173',
-  'S41E174',
-  'S41E175',
-  'S41E176',
-  'S42E171',
-  'S42E172',
-  'S42E173',
-  'S42E174',
-  'S42E175',
-  'S42E176',
-  'S43E170',
-  'S43E171',
-  'S43E172',
-  'S43E173',
-  'S43E174',
-  'S44E168',
-  'S44E169',
-  'S44E170',
-  'S44E171',
-  'S44E172',
-  'S44E173',
-  'S45E167',
-  'S45E168',
-  'S45E169',
-  'S45E170',
-  'S45E171',
-  'S46E166',
-  'S46E167',
-  'S46E168',
-  'S46E169',
-  'S46E170',
-  'S46E171',
-  'S47E166',
-  'S47E167',
-  'S47E168',
-  'S47E169',
-  'S47E170',
-  'S48E167',
-  'S48E168',
+#: SRTM tiles that cover the East Coast Tri-State Area
+SRTM_EC_TILE_IDS = [
+  'N38W075',
+  'N38W076',
+  'N38W077',
+  'N39W075',
+  'N39W076',
+  'N39W077',
+  'N40W075',
+  'N40W076',
+  'N40W077',
   ]
 
 #: Transmitter CSV files must have these header columns
@@ -111,7 +55,7 @@ EARTH_CONDUCTIVITY = 0.005
 #: 5=Continental Temperate;
 #: 6=Maritime Temperate, over land (UK and west coasts of US & EU);
 #: 7=Maritime Temperate, over sea
-RADIO_CLIMATE = 6
+RADIO_CLIMATE = 5
 
 #: SPLAT! time variability parameter
 FRACTION_OF_TIME = 0.5
